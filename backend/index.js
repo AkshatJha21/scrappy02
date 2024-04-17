@@ -1,10 +1,15 @@
 const express = require("express");
+const cors = require("cors");
+const { expense } = require("./db");
 
 const app = express();
 const port = 3000;
 
-app.get('/all', async (req, res) => {
+app.use(express.json());
+app.use(cors());
 
+app.get('/all', async (req, res) => {
+    
 });
 
 app.post('/new', async (req, res) => {
