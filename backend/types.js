@@ -11,5 +11,6 @@ const deleteExpense = zod.object({
 });
 
 module.exports = {
-    addExpense
+    addExpense,
+    deleteExpense
 }

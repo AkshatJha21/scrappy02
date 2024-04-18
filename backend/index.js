@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const { expense } = require("./db");
-const { addExpense } = require("./types");
+const { addExpense, deleteExpense } = require("./types");
 
 const app = express();
 const port = 3000;
@@ -40,7 +40,23 @@ app.post('/new', async (req, res) => {
 });
 
 app.delete('/remove', async (req, res) => {
-    
+    const deleteBody = req.body;
+    const parsedBody = deleteExpense.safeParse(deleteBody);
+
+    if (!parsedBody.success) {
+        res.status(411).json({
+            message: 'Wrong input'
+        });
+        return;
+    }
+
+    await expense.deleteOne({
+        _id: deleteBody.id
+    });
+
+    res.status(200).json({
+        message: 'Expense deleted successfully'
+    });
 });
 
 app.listen(port, (req, res) => {
