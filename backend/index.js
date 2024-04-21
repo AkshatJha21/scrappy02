@@ -37,6 +37,7 @@ app.post('/new', async (req, res) => {
     res.status(200).json({
         message: 'Expense added successfully'
     });
+    console.log('streak');
 });
 
 app.delete('/remove', async (req, res) => {
