@@ -5,7 +5,6 @@ const AddExpense = () => {
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
     const [amount, setAmount] = useState(0);
-
   return (
     <div className='container'>
         <input type="text" placeholder='Title' onChange={(e) => {
@@ -13,8 +12,8 @@ const AddExpense = () => {
             setTitle(e.target.value);
         }}/>
         <select name="category" id="category" onChange={(e) => {
-            const value = e.target.value;
-            setCategory(e.target.value);
+            const selectedOption = e.target.value;
+            setCategory(selectedOption);
         }}>
             <option value="travel">Travel</option>
             <option value="food">Food</option>
@@ -26,6 +25,7 @@ const AddExpense = () => {
             setAmount(e.target.value);
         }}/>
         <button onClick={() => {
+            console.log(category);
             fetch("http://localhost:3000/new", {
                 method: "POST",
                 body: JSON.stringify({
