@@ -11,13 +11,11 @@ const AddExpense = () => {
             const value = e.target.value;
             setTitle(e.target.value);
         }}/>
-        <select name="category" id="category" onChange={(e) => {
-            const selectedOption = e.target.value;
-            setCategory(selectedOption);
-        }}>
+        <select value={category} onChange={e => setCategory(e.target.value)}>
             <option value="travel">Travel</option>
             <option value="food">Food</option>
-            <option value="grocery">Grocery</option>
+            <option value="education">Education</option>
+            <option value="clothing">Clothing</option>
             <option value="other">Other</option>
         </select>
         <input type="number" placeholder='Amount' onChange={(e) => {
@@ -25,7 +23,6 @@ const AddExpense = () => {
             setAmount(e.target.value);
         }}/>
         <button onClick={() => {
-            console.log(category);
             fetch("http://localhost:3000/new", {
                 method: "POST",
                 body: JSON.stringify({
