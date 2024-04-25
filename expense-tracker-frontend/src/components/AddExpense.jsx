@@ -5,7 +5,9 @@ const AddExpense = () => {
 
   return (
     <div className='container'>
+      <h1>
         Add Expense Component
+      </h1>
     </div>
   )
 }
