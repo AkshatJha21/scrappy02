@@ -6,7 +6,7 @@ const AddExpense = () => {
   return (
     <div className='container'>
       <h1>
-        Add Expense Component
+        Add Expense
       </h1>
     </div>
   )
