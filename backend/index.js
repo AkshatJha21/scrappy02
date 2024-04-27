@@ -17,21 +17,31 @@ app.get('/all', async (req, res) => {
     });
 });
 
+//SOURCE OF ERROR (ZOD? FRONTEND?)
 app.post('/new', async (req, res) => {
-    const newExpense = req.body;
-    const parsedExpense = addExpense.safeParse(newExpense);
+    const createPayload = req.body;
 
-    if (!parsedExpense.success) {
+    const predefinedCategories = ['Food', 'Transportation', 'Utilities', 'Entertainment'];
+    if (!predefinedCategories.includes(createPayload.category)) {
+        return res.status(400).json({
+            message: 'Invalid category. Please choose from the predefined categories.',
+            predefinedCategories: predefinedCategories
+        });
+    }
+
+    const parsedPayload = addExpense.safeParse(createPayload);
+
+    if (!parsedPayload.success) {
         res.status(411).json({
-            message: 'Incorrect inputs'
+            message: "Incorrect inputs"
         });
         return;
     }
 
     await expense.create({
-        title: newExpense.title,
-        category: newExpense.category,
-        amount: newExpense.amount
+        title: createPayload.title,
+        category: createPayload.category,
+        amount: createPayload.amount
     });
 
     res.status(200).json({

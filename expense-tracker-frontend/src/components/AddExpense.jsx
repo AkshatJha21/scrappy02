@@ -30,13 +30,14 @@ const AddExpense = () => {
         setAmount(e.target.value);
       }}/>
       <button onClick={() => {
-        console.log(category);
         console.log(title);
+        console.log(category);
         console.log(amount);
+        const amountNumber = parseFloat(amount);
         axios.post("http://localhost:3000/new", {
           title: title,
           category: category,
-          amount: amount
+          amount: amountNumber
         }).then(function (res) {
           console.log("Expense added successfully");
         }).catch(function (err) {
