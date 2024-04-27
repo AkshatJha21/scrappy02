@@ -1,8 +1,10 @@
 const z = require("zod");
 
+const categoryEnum = z.enum(['Food', 'Transportation', 'Utilities', 'Entertainment']);
+
 const addExpense = z.object({
     title: z.string().min(1),
-    category: z.string(),
+    category: categoryEnum,
     amount: z.number()
 })
 
