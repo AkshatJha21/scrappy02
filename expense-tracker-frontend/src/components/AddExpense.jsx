@@ -24,15 +24,11 @@ const AddExpense = () => {
         <option value="Transportation">Transportation</option>
         <option value="Utilities">Utilities</option>
         <option value="Entertainment">Entertainment</option>
-        {/* Add more options as needed */}
       </select>
       <input type="number" placeholder='Amount' onChange={(e) => {
         setAmount(e.target.value);
       }}/>
       <button onClick={() => {
-        console.log(title);
-        console.log(category);
-        console.log(amount);
         const amountNumber = parseFloat(amount);
         axios.post("http://localhost:3000/new", {
           title: title,

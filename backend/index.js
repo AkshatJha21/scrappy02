@@ -17,7 +17,6 @@ app.get('/all', async (req, res) => {
     });
 });
 
-//SOURCE OF ERROR (ZOD? FRONTEND?)
 app.post('/new', async (req, res) => {
     const createPayload = req.body;
 
