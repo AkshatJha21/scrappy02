@@ -36,6 +36,7 @@ const AddExpense = () => {
           amount: amountNumber
         }).then(function (res) {
           console.log("Expense added successfully");
+          window.location.reload();
         }).catch(function (err) {
           console.error("Error adding expense: ", err);
         });
