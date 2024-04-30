@@ -6,6 +6,7 @@ import axios from 'axios';
 
 function App() {
   const [expense, setExpense] = useState([]);
+  const [filter, setFilter] = useState('');
 
   useEffect(() => {
     axios.get("http://localhost:3000/all").then(function (res) {
@@ -16,10 +17,23 @@ function App() {
     })
   }, []);
 
+  const handleFilter = (e) => {
+    setFilter(e.target.value);
+  }
+
   return (
     <div>
       <AddExpense />
-      <AllExpenses key={expense._id} expenses={expense}/>
+      <div>
+        <label htmlFor="categoryFilter">Filter by Category:</label>
+          <select id="categoryFilter" onChange={handleFilter}>
+            <option value="">All</option>
+            {['Food', 'Transportation', 'Utilities', 'Entertainment'].map(category => (
+              <option key={category} value={category}>{category}</option>
+            ))}
+          </select>
+      </div>
+      <AllExpenses key={expense._id} expenses={expense} filterCategory={filter}/>
     </div>
   )
 }
