@@ -14,7 +14,16 @@ const AllExpenses = ({ expenses, filterCategory }) => {
                     {/* SAMPLE FUNCTION */}
                     <button onClick={() => {
                         axios.delete("http://localhost:3000/remove", {
-                            id: expense._id
+                            data: {
+                                id: expense._id
+                            }
+                        })
+                        .then(function (res) {
+                            console.log("Todo deleted");
+                            window.location.reload();
+                        })
+                        .catch(function (error) {
+                            console.error("Error deleting todo:", error);
                         });
                     }}>Delete</button>
                 </div>
