@@ -23,6 +23,7 @@ function App() {
 
   return (
     <div>
+      <h3>Scrappy Expense Tracker</h3>
       <AddExpense />
       <div>
         <label htmlFor="categoryFilter">Filter by Category:</label>
