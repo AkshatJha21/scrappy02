@@ -16,6 +16,7 @@ const AddExpense = () => {
         setTitle(e.target.value);
       }}/>
       <select
+        className='categorySelector'
         value={category}
         onChange={handleChange}
       >
@@ -28,7 +29,7 @@ const AddExpense = () => {
       <input type="number" placeholder='Amount' onChange={(e) => {
         setAmount(e.target.value);
       }}/>
-      <button onClick={() => {
+      <button className='addBtn' onClick={() => {
         const amountNumber = parseFloat(amount);
         axios.post("http://localhost:3000/new", {
           title: title,
