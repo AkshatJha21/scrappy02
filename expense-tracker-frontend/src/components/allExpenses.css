@@ -1,3 +1,53 @@
 .listBox {
     margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 10px;
+    grid-column-gap: 5px;
+}
+
+.card {
+    padding: 1rem 15px;
+    margin: 5px;
+    border: 1px solid rgb(198, 203, 207);
+    border-radius: 5px;
+}
+
+.expTitle {
+    margin: 5px 0px;
+}
+
+.expCategory {
+    padding: 2px 4px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    background-color: rgb(198, 203, 207);
+    width: fit-content;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.amt {
+    margin: 5px 0px;
+    color: mediumseagreen;
+    font-weight: 500;
+}
+
+.deleteBtn {
+    padding: 5px 8px;
+    background-color: rgb(252, 76, 76);
+    color: white;
+    border: 1px solid rgb(252, 76, 76);
+    border-radius: 5px;font-weight: 500;
+}
+
+.deleteBtn:hover {
+    background-color: white;
+    color: rgb(252, 76, 76);
+    transition: 100ms;
+    cursor: pointer;
 }
