@@ -1,17 +1,17 @@
 import React from 'react'
 import axios from "axios"
+import './allExpenses.css'
 
 const AllExpenses = ({ expenses, filterCategory }) => {
     const filteredExpenses = filterCategory ? expenses.filter(expense => expense.category === filterCategory) : expenses;
   return (
-    <div>
+    <div className='listBox'>
         {filteredExpenses.map((expense, index) => {
             return (
                 <div key={index}>
                     <h3>{expense.title}</h3>
                     <p>{expense.category}</p>
                     <p>{expense.amount}</p>
-                    {/* SAMPLE FUNCTION */}
                     <button onClick={() => {
                         axios.delete("http://localhost:3000/remove", {
                             data: {

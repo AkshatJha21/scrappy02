@@ -25,7 +25,7 @@ function App() {
     <div>
       <h3 className='title'>Scrappy Expense Tracker</h3>
       <AddExpense />
-      <div>
+      <div className='categoryFilter'>
         <label htmlFor="categoryFilter">Filter by Category:</label>
           <select id="categoryFilter" onChange={handleFilter}>
             <option value="">All</option>
