@@ -48,6 +48,29 @@ app.post('/new', async (req, res) => {
     });
 });
 
+app.put('/edit', async (req, res) => {
+    const editPayload = req.body;
+    const parsedPayload = addExpense.safeParse(editPayload);
+
+    if (!parsedPayload.success) {
+        return res.status(411).json({
+            message: "Incorrect inputs"
+        });
+    }
+
+    await expense.updateOne({
+        _id: editPayload.id,
+    }, {
+        title: editPayload.title,
+        category: editPayload.category,
+        amount: editPayload.amount
+    });
+
+    res.status(200).json({
+        message: "Expense updated successfully"
+    });
+});
+
 app.delete('/remove', async (req, res) => {
     const deleteBody = req.body;
     const parsedBody = deleteExpense.safeParse(deleteBody);
