@@ -7,6 +7,7 @@ This is a scrappy expense tracker made using Vite+React.
 - Add New Expense
 - View All Expenses
 - Filter Expenses by Category
+- Edit Expense
 - Delete Expenses
 
 ## Tech Stack
@@ -17,3 +18,4 @@ This is a scrappy expense tracker made using Vite+React.
 - Node.js
 
 ![Home Page](demo.png)
+![Edit Page](edit.png)
