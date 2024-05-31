@@ -51,3 +51,13 @@
     transition: 100ms;
     cursor: pointer;
 }
+
+.editBtn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.editBtn:hover {
+    font-weight: 500;
+}

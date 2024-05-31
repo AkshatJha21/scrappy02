@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import './editExpense.css'
 
 const EditExpense = ({ expense, closeDialog }) => {
     const [title, setTitle] = useState(expense.title);
@@ -42,8 +43,8 @@ const EditExpense = ({ expense, closeDialog }) => {
                 <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)}/>
             </div>
             <div className='dialog-actions'>
-                <button onClick={handleUpdate}>Update</button>
-                <button onClick={closeDialog}>Close</button>
+                <button className='update' onClick={handleUpdate}>Make Changes</button>
+                <button className='cancel' onClick={closeDialog}>Cancel</button>
             </div>
         </div>
     </div>
